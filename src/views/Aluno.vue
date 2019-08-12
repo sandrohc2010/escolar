@@ -2,7 +2,7 @@
   <v-container>
     <div>
       <v-toolbar flat color="white">
-        <v-toolbar-title>Gerenciar Cursos</v-toolbar-title>
+        <v-toolbar-title>Gerenciar Alunos</v-toolbar-title>
         <v-divider class="mx-2" inset vertical></v-divider>
         <v-spacer></v-spacer>
         <v-btn color="orange" @click="gerarPDF">Gerar Relatório</v-btn>
