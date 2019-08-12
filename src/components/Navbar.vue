@@ -6,7 +6,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-toolbar-items>
+      <v-toolbar-items class="hidden-sm-and-down">
         <v-btn router to="/" text>Alunos</v-btn>
         <v-btn router to="/professores" text>Professores</v-btn>
         <v-btn router to="/cursos" text>Cursos</v-btn>
