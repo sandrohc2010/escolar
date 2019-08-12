@@ -7,7 +7,7 @@
         <v-spacer></v-spacer>
       </v-toolbar>
     </div>
-    <v-data-table :headers="headers" :items="professores" sort-by="calories" class="elevation-1">
+    <v-data-table :headers="headers" :items="professores" class="elevation-1">
       <template v-slot:top>
         <v-toolbar flat color="white">
           <v-toolbar-title>My CRUD</v-toolbar-title>
@@ -15,7 +15,7 @@
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on }">
-              <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+              <v-btn color="primary" dark class="mb-2" v-on="on">Cadastrar Professor</v-btn>
             </template>
             <v-card>
               <v-card-title>
@@ -76,9 +76,6 @@
       </template>
       <template v-slot:item.data_nascimento="{ item }">
         {{formatDate(item.data_nascimento)}}
-      </template>
-      <template v-slot:item.data_criacao="{ item }">
-        {{formatDate(item.data_criacao)}}
       </template>
       <template v-slot:item.action="{ item }">
         <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
@@ -144,7 +141,7 @@ export default {
 
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "New Item" : "Edit Item";
+      return this.editedIndex === -1 ? "Cadastrar" : "Editar";
     },
     computedDateFormatted() {
       return this.formatDate(this.date);
@@ -203,6 +200,7 @@ export default {
 
     close() {
       this.dialog = false;
+      this.clear();
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem);
         this.editedIndex = -1;
@@ -244,7 +242,15 @@ export default {
             console.log(e);
           });
       }
+      this.clear();
       this.close();
+    },
+
+    clear() {
+      // eslint-disable-next-line
+      for (const item in this.professor) {
+        this.professor[item] = '';
+      }
     },
   },
 };

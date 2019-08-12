@@ -15,7 +15,7 @@
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on }">
-              <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+              <v-btn color="primary" dark class="mb-2" v-on="on">Cadastrar Curso</v-btn>
             </template>
             <v-card>
               <v-card-title>
@@ -139,7 +139,7 @@ export default {
 
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "New Item" : "Edit Item";
+      return this.editedIndex === -1 ? "Cadastrar" : "Editar";
     },
     computedDateFormatted() {
       return this.formatDate(this.date);
@@ -213,6 +213,7 @@ export default {
 
     close() {
       this.dialog = false;
+      this.clear();
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem);
         this.editedIndex = -1;
