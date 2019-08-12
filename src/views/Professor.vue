@@ -42,7 +42,7 @@
                         <template v-slot:activator="{ on }">
                           <v-text-field
                             v-model="dateFormatted"
-                            label="Date"
+                            label="Data de Nascimento"
                             hint="MM/DD/YYYY format"
                             persistent-hint
                             prepend-icon="mdi-calendar"
@@ -133,7 +133,7 @@ export default {
       },
       professor: {
         nome: "",
-        nascimento: "",
+        nascimento: this.formatDate(new Date().toISOString().substr(0, 10)),
       },
       selectedID: -1,
     };
@@ -251,6 +251,7 @@ export default {
       for (const item in this.professor) {
         this.professor[item] = '';
       }
+      this.professor.nascimento = this.formatDate(new Date().toISOString().substr(0, 10));
     },
   },
 };

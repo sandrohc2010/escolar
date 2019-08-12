@@ -35,6 +35,7 @@
                         v-model="curso.professor"
                         item-text="nome"
                         item-value="id_professor"
+                        label="Selecione um Professor"
                       ></v-select>
                       </div>
                     </v-flex>
@@ -131,7 +132,7 @@ export default {
       curso: {
         nome: '',
         professor: '',
-        criacao: '',
+        criacao: this.formatDate(new Date().toISOString().substr(0, 10)),
       },
       selectedID: -1,
     };
@@ -223,7 +224,7 @@ export default {
     clear() {
       this.curso.nome = '';
       this.curso.professor = '';
-      this.curso.criacao = '';
+      this.curso.criacao = this.formatDate(new Date().toISOString().substr(0, 10));
       this.dateFormatted = '';
     },
 

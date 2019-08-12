@@ -31,11 +31,11 @@
 
               <v-card-text>
                 <v-container grid-list-md>
-                  <v-layout wrap>
+                  <v-layout row wrap>
                     <v-flex xs12>
                       <v-text-field v-model="aluno.nome" label="Nome"></v-text-field>
                     </v-flex>
-                    <v-flex xs12 lg6>
+                    <v-flex xs12>
                       <div>
                         <v-select
                         :items="cursos"
@@ -47,7 +47,7 @@
                       </div>
                     </v-flex>
 
-                    <v-flex xs12 lg6>
+                    <v-flex xs12>
                       <v-menu
                         ref="menu1"
                         v-model="menu1"
@@ -82,10 +82,10 @@
                       <v-flex xs12>
                         <v-text-field v-model="aluno.cep" v-mask="mask" label="CEP" @input="buscaCep"></v-text-field>
                       </v-flex>
-                      <v-flex xs6>
+                      <v-flex xs12>
                         <v-text-field v-model="aluno.estado" label="Estado"></v-text-field>
                       </v-flex>
-                      <v-flex xs6>
+                      <v-flex xs12>
                         <v-text-field v-model="aluno.cidade" label="Cidade"></v-text-field>
                       </v-flex>
                       <v-flex xs12>
@@ -99,7 +99,7 @@
                         <v-text-field v-model="aluno.numero" label="Número"></v-text-field>
                       </v-flex>
 
-                      <v-flex xs12 lg6>
+                      <v-flex xs12>
                         <v-menu
                           ref="menu"
                           v-model="menu"
@@ -224,7 +224,7 @@ export default {
 
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "New Item" : "Edit Item";
+      return this.editedIndex === -1 ? "Cadastrar" : "Editar";
     },
     computedDateFormatted() {
       return this.formatDate(this.date);
